@@ -45,7 +45,7 @@ const Edit: Page = () => {
       router.push(`/employees/${id}`);
     } catch (error: any) {
       if (isAxiosError(error)) {
-        if (error.code === "422") {
+        if (error.response?.status === 422) {
           const errors: FieldError[] = error.response?.data || [];
 
           errors.forEach((error) =>
